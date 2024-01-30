@@ -1,0 +1,46 @@
+```yaml
+version: "3.8"
+
+services:
+    lavalink:
+        image: fredboat/lavalink:3.7.8
+        container_name: lavalink
+        restart: unless-stopped
+        environment:
+            - _JAVA_OPTIONS=-Xmx6G
+            - SERVER_PORT=2333
+            - SERVER_ADDRESS=0.0.0.0
+            - LAVALINK_SERVER_PASSWORD=<Goqork77?>
+            - LAVALINK_SERVER_SOURCES_HTTP=true
+        networks:
+            - lavalink
+        expose:
+            - 2333
+        ports:
+            - 2333:2333
+
+    discordbot:
+        image: vmstr8/discord-music-bot:<версия_бота>
+        container_name: discordbot
+        restart: unless-stopped
+        depends_on:
+            - lavalink
+        networks:
+        - lavalink
+        volumes:
+        - ./data/:/discordbot/data/
+        - ./entrypoint.sh:/discordbot/entrypoint.sh
+        environment:
+            - BOT_TOKEN=<токен_дискорд_бота>
+            - WAVELINK_URI=http://lavalink:2333
+            - WAVELINK_PASSWORD=<придуманный_вами_пароль_из_блока_lavalink>
+            - DATABASE_URL=sqlite://data/db.sqlite3
+            - DISCORD_TEXT_CATEGORIES_ID=<каким_текстовым_категориям_выдавать_разрешение_через_запятую>
+            - MESSAGE_NOT_ALLOWED_TEXT_CHANNELS_ID=<в_каких_каналах_удалять_собщения_пользователей>
+            - GREETINGS_CHANNEL=<канал_для_приветственных_сообщеий_бота>
+            - DISCORD_VOICE_CATEGORIES_ID=<каким_голосовым_категориям_выдавать_разрешение_через_запятую>
+
+networks:
+    lavalink:
+        name: lavalink
+```
