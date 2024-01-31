@@ -36,9 +36,9 @@ services:
             - WAVELINK_PASSWORD=<придуманный_вами_пароль_из_блока_lavalink>
             - DATABASE_URL=sqlite://data/db.sqlite3
             - DISCORD_TEXT_CATEGORIES_ID=<каким_текстовым_категориям_выдавать_разрешение_через_запятую>
-            - MESSAGE_NOT_ALLOWED_TEXT_CHANNELS_ID=<в_каких_каналах_удалять_собщения_пользователей>
+            - MESSAGE_NOT_ALLOWED_TEXT_CHANNELS_ID=<0>
             - GREETINGS_CHANNEL=<канал_для_приветственных_сообщеий_бота>
-            - DISCORD_VOICE_CATEGORIES_ID=<каким_голосовым_категориям_выдавать_разрешение_через_запятую>
+            - DISCORD_VOICE_CATEGORIES_ID=<804048940596199464>
 
 networks:
     lavalink:
