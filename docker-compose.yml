@@ -31,7 +31,7 @@ services:
         - ./data/:/discordbot/data/
         - ./entrypoint.sh:/discordbot/entrypoint.sh
         environment:
-            - BOT_TOKEN=<токен_дискорд_бота>
+            - BOT_TOKEN=<MTIwMjM2Mzc3OTQ1MTQ2MTc3Mg.GTbha5.BFMFZez1MjdPSNjH9SgJQK0Z9WQ_uB_e9pEeCA>
             - WAVELINK_URI=http://lavalink:2333
             - WAVELINK_PASSWORD=<придуманный_вами_пароль_из_блока_lavalink>
             - DATABASE_URL=sqlite://data/db.sqlite3
